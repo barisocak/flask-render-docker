@@ -1,22 +1,19 @@
-from flask import Flask
-import requests
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-API_URL = "https://flask-render-docker.onrender.com/api/info"
-
-
-
 @app.route("/")
 def home():
-    r = requests.get(API_URL)
-    data = r.json()
-    return f"""
-    <h1>Mikro Hizmet Frontend</h1>
-    <p>API Servis: {data['service']}</p>
-    <p>Durum: {data['status']}</p>
-    <p>Sahip: {data['owner']}</p>
-    """
+    return "Microservice API çalışıyor - Barış Ocak"
+
+@app.route("/api/info")
+def info():
+    return jsonify({
+        "service": "Microservice API",
+        "status": "active",
+        "owner": "Barış Ocak"
+    })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
