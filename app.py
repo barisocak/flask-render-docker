@@ -6,6 +6,7 @@ app = Flask(__name__)
 API_URL = "https://flask-render-docker.onrender.com/api/info"
 
 
+
 @app.route("/")
 def home():
     r = requests.get(API_URL)
