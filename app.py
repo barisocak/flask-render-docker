@@ -2,18 +2,14 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return "Microservice API çalışıyor - Barış Ocak"
-
-@app.route("/api/info")
-def info():
+@app.route("/stateless")
+def stateless():
     return jsonify({
-        "service": "Microservice API",
-        "status": "active",
+        "message": "Stateless API çalışıyor",
         "owner": "Barış Ocak"
     })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
