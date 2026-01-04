@@ -2,6 +2,10 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "Stateless API çalışıyor - Barış Ocak"
+
 @app.route("/stateless")
 def stateless():
     return jsonify({
@@ -11,5 +15,7 @@ def stateless():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
+
 
 
